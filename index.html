@@ -1,1 +1,20 @@
-<h1><center>葡萄美酒夜光杯</center></h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <div id="web_bg" style="position:absolute; width:100%; height:100%; z-index:-1">
+        <script type="text/javascript">
+            var pictures = ['pictures/depression.jpg', 'pictures/dream.jpg', 'pictures/mm.png']
+            var index = (new Date()).getSeconds() % pictures.length;
+            document.write('<img style="position:fixed;" src="' + pictures[index]
+                           + '" height="100%" width="100%" />');
+        </script>
+    </div>
+
+</head>
+<body>
+
+<p><h1><center>nice</center></h1></p>
+
+</body>
+</html>
