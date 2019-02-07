@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VIP πs VIP</title>
+</head>
+<body background="pictures/anthony-cantin-497247-unsplash.jpg" style="background-size:100% 100%">
+
+<script>
+
+var parseUrls = {
+    'bbbbbb': 'http://api.bbbbbb.me/jx/?url=',
+    '2wk': 'https://2wk.com/vip.php?url=',
+    'jx598110': 'http://jx.598110.com/index.php?url=',
+    '47ks': 'http://api.47ks.com/webcloud/?v=',
+    'baodai': 'https://player.baodai.org/ipsign/player.php?v=',
+    'baiyug': 'http://yun.baiyug.cn/vip/?url=',
+    'mt2t': 'http://y.mt2t.com/lines?url=',
+    'jiexi071811': 'http://jiexi.071811.cc/jx2.php?url=',
+    'jx618g': 'https://jx.618g.com/?url=',
+    'visaok': 'http://api.visaok.net/?url='
+}
+
+function onClick(evType) {
+    switch (evType) {
+        case undefined:
+        case "url_filled":
+            var input = document.getElementById("video_url");
+
+            for (var key in parseUrls) {
+                document.getElementById(key).src = parseUrls[key] + input.value;
+            }
+
+            break;
+
+        default:
+            document.getElementById(evType).webkitRequestFullscreen()
+            break;
+    }
+}
+
+function onEnterDown(event) {
+    if(event.keyCode == 13) {
+        onClick();
+    }
+}
+
+function onFocus() {
+    var input = document.getElementById('video_url')
+    if (input.value == 'url ...') {
+        input.value = ''
+    }
+    else {
+        input.select()
+    }
+}
+
+(function () {
+    body = "<div style='text-align:center;'>\n"
+    body += "<input id='video_url' size='100' value='url ...' onkeydown='onEnterDown(event)' onfocus='onFocus()'></input>\n";
+    body += "<input class='vip-button' type='button' value='vip' onclick=\"onClick('url_filled')\" style='color:#fff;background-color:red'></input>\n";
+    body += "</div>\n"
+    body += "<p></p>\n"
+
+    for (var key in parseUrls) {
+        body += "<iframe id='" + key + "' src=''></iframe>\n";
+        body += "<input type='button' value='GET' onclick=\"onClick('" + key + "')\"></a>\n";
+    }
+
+    document.write(body);
+}) ()
+
+</script>
+
+</body>
+</html>
